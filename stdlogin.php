@@ -13,7 +13,7 @@ include 'head.php';
        <i class="fa fa-lock"></i>
        <input type="password" name="spwd" placeholder="Password">
      </div>
-     <button type="submit" name="submit" class="loggg">Log In</button>
+     <button type="submit" name="submit" class="loggg">Log In  <i class="fas fa-sign-in-alt"></i></button>
       <p> <a href="stdsign.php">Dont have account? Create now.</a> </p>
    </div>
 

@@ -19,7 +19,7 @@ include  'head.php';
     <input type="password" name="pwd" placeholder="Password">
   </div>
 
-  <button type="submit"class="btn" name="submit">Log In</button>
+  <button type="submit"class="btn" name="submit">Log In  <i class="fas fa-sign-in-alt fa-1.2g"></i></button>
 
       </div>
 </form>

@@ -1,7 +1,7 @@
 <?php
 if (isset($_SESSION['uid'])) {
 echo '<form class="logg" action="../includes/logout.php" method="POST">
-  <button type="submit" name="submit" class="btn">Log out</button>
+  <button type="submit" name="submit" class="btn">Log out  <i class="fas fa-sign-out-alt"></i></button>
 </form>
 <div id="mySidenav" class="sidenav">
   <a href="../index.php">Home</a>
@@ -20,7 +20,7 @@ if ($_SESSION['uid']==5) {
 }
 }elseif (isset($_SESSION['id'])) {
   echo '<form class="logg" action="../includes/logout.php" method="POST">
-    <button type="submit" name="submit" class="btn">Log out</button>
+    <button type="submit" name="submit" class="btn">Log out <i class="fas fa-sign-out-alt"></i></button>
   </form>
   <div id="mySidenav" class="sidenav">
     <a href="../index.php">Home</a>
