@@ -34,11 +34,18 @@ if (isset($_SESSION['uid'])) {
         mysqli_stmt_execute($stmt);
         $result = mysqli_stmt_get_result($stmt);
         while ($row= mysqli_fetch_assoc($result)) {
-          echo '<div style="border:1px solid black;">
+          echo '<div style="border:1px solid black;position:relative;">
           <div class="p-2 bd-highlight"><p class = "dates">'.$row['insert_date'].'</p></div>
-          <div class="p-2 bd-highlight"><p class = "naau">'.$row['user'].'</p></div>
+          <div class="p-2 bd-highlight"><p class = "naau">Notice Issued By  : '.$row['user'].'</p></div>
           <div class="p-2 bd-highlight"><p class = "notice">'.$row['notice'].'</p></div>
-  </div>';
+          <p>
+          <form class = "delete_form" action="../includes/delete.php" method="POST">
+          <input type="hidden" name ="commentid" value="'.$row['COMMENTid'].'"<br>
+          <button name ="delete" type = "submit">Delete</button><br>
+          </form><br><br>
+  </div>
+
+  </P>';
   }echo '</div>';
   }
 }

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 10, 2018 at 10:07 AM
+-- Generation Time: Nov 12, 2018 at 12:05 PM
 -- Server version: 10.1.30-MariaDB
 -- PHP Version: 7.2.1
 
@@ -21,6 +21,27 @@ SET time_zone = "+00:00";
 --
 -- Database: `school`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `notices`
+--
+
+CREATE TABLE `notices` (
+  `COMMENTid` int(11) NOT NULL,
+  `insert_date` datetime NOT NULL,
+  `user` varchar(256) NOT NULL,
+  `notice` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `notices`
+--
+
+INSERT INTO `notices` (`COMMENTid`, `insert_date`, `user`, `notice`) VALUES
+(30, '2018-11-10 09:05:04', 'principal', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi nec porta sem, nec placerat velit. Aenean scelerisque turpis et rhoncus laoreet. Aliquam id enim venenatis, eleifend urna ac, convallis est. Suspendisse ac pharetra massa, sit amet efficitur arcu. Integer luctus elit faucibus dui hendrerit, ut viverra ipsum tempor. Ut velit sapien, suscipit vitae velit vel, tincidunt rutrum quam. Phasellus tempus, augue vitae pretium hendrerit, urna turpis congue ante, et facilisis neque massa ac nunc. Sed pellentesque placerat tincidunt. Aenean a augue sit amet elit elementum aliquet. Nulla laoreet imperdiet orci, non condimentum nunc tristique non. Morbi et erat viverra, feugiat nulla et, elementum dolor. Curabitur rutrum nulla at enim varius sagittis. Duis vulputate tempor nisl, non fringilla diam interdum sollicitudin.'),
+(31, '2018-11-12 04:41:10', 'principal', 'hryhry');
 
 -- --------------------------------------------------------
 
@@ -82,6 +103,12 @@ INSERT INTO `teachers.detail` (`ID`, `firstname`, `lastname`, `phone.number`, `u
 --
 
 --
+-- Indexes for table `notices`
+--
+ALTER TABLE `notices`
+  ADD PRIMARY KEY (`COMMENTid`);
+
+--
 -- Indexes for table `std.parent`
 --
 ALTER TABLE `std.parent`
@@ -96,6 +123,12 @@ ALTER TABLE `teachers.detail`
 --
 -- AUTO_INCREMENT for dumped tables
 --
+
+--
+-- AUTO_INCREMENT for table `notices`
+--
+ALTER TABLE `notices`
+  MODIFY `COMMENTid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
 
 --
 -- AUTO_INCREMENT for table `std.parent`
