@@ -5,7 +5,7 @@ include  'head.php';
   <body>
     <section class="main-container">
 <?php
-    if ($_SESSION['uid']==5) {
+    if ($_SESSION['uid5']) {
       echo '<div class="wrapper-main">
         <h2>Sign up Form for teacher</h2>
 
@@ -16,7 +16,8 @@ include  'head.php';
         <input type="text" name="email" placeholder="E-mail"><br>
         <input type="password" name="pwd" placeholder="password"><br>
         <input type="text" name="phn" placeholder="phone number"><br>
-        <input type="text" name="class" placeholder="assigned class"><br>
+        <input type="text" name="class" placeholder="assigned class">
+        <input type="text" name="section" placeholder="assigned section"><br>
         <button type="submit" name="submit">Register Now</button>
         </form>
 

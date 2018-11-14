@@ -1,5 +1,5 @@
 <?php
-if (isset($_SESSION['uid'])) {
+if (isset($_SESSION['uid']) || isset($_SESSION['uid5'])) {
   include '../includes/dbcon.php';
   echo '<div class="comment">
     <form class="notice" action="../includes/notice.php" method="POST">

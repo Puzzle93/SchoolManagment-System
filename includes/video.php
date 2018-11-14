@@ -9,7 +9,7 @@ if (isset($_POST['submit'])) {
     $videodesc = $_POST['desc'];
     $uploader = $_POST['user'];
     $recommended = $_POST['class'];
-
+$videoorder=1;
     $video = $_FILES['file'];
 
     $videoname = $video['name'];
@@ -24,7 +24,7 @@ if (isset($_POST['submit'])) {
 
     $allowed = "mp4";
 
-  if ($fileRealExt == $allowed) {
+  if ($fileRealExt == $allowed || $fileRealExt == "wmv") {
 $videofullname = $newfilename .".". uniqid("",true) .".".$fileRealExt;
 
 $videodestiny = "../uploads/video/" . $videofullname;
@@ -43,9 +43,9 @@ if (empty($videotitle) || empty($videodesc) || empty($recommended)) {
     mysqli_stmt_execute($stmt);
     $result =  mysqli_stmt_get_result($stmt);
     $resultcheck = mysqli_num_rows($result);
-    $videoorder = $resultcheck+1;
 
-    $sql= "INSERT INTO videolect(videotitle,description,videofullname,ordervideo,recommended,uploadedby) VALUES (?,?,?,?,?,?) ";
+
+    $sql= "INSERT INTO videolect(videotitle,description,videofullname,ordervideo,recommended,uploadedby) VALUES (?,?,?,?,?,?);";
     if (!mysqli_stmt_prepare($stmt,$sql)) {
       header('Location:../inside/lect.php?upload=sqlfails');
       exit();
@@ -54,7 +54,7 @@ if (empty($videotitle) || empty($videodesc) || empty($recommended)) {
           mysqli_stmt_bind_param($stmt, "ssssss",$videotitle,$videodesc,$videofullname,$videoorder,$recommended,$uploader);
           mysqli_stmt_execute($stmt);
 
-          move_uploaded_file($videotempname,$videodestiny);
+       move_uploaded_file($videotempname,$videodestiny);
           header('Location:../inside/lect.php?upload=success');
         }
 

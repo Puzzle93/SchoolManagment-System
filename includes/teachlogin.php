@@ -26,6 +26,15 @@ if (isset($_POST['submit'])) {
            header('Location: ../teachlogin.php?login=notmatch');
            exit();
          }elseif ($hashedpwdcheck == true) {
+           if($row['username'] == 'principal12'){
+             $_SESSION['uid5'] = $row['ID'];
+             $_SESSION['first'] = $row['firstname'];
+             $_SESSION['last'] = $row['lastname'];
+             $_SESSION['email'] = $row['email'];
+             $_SESSION['user'] = $row['username'];
+             $_SESSION['phn'] = $row['phone.number'];
+             $_SESSION['class'] = $row['assigned.class'];
+           }else{
            $_SESSION['uid'] = $row['ID'];
            $_SESSION['first'] = $row['firstname'];
            $_SESSION['last'] = $row['lastname'];
@@ -33,6 +42,7 @@ if (isset($_POST['submit'])) {
            $_SESSION['user'] = $row['username'];
            $_SESSION['phn'] = $row['phone.number'];
            $_SESSION['class'] = $row['assigned.class'];
+         }
            header('Location: ../index.php');
            exit();
          }

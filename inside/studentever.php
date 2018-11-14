@@ -9,7 +9,6 @@ echo'<form class="logg" action="includes/logout.php" method="POST">
   <a href="inside/lect.php">Video Lectures</a>
   <a href="inside/event.php">UpcommingEvents</a>
   <a href="inside/gallery.php">Gallery</a>
-  <a href="inside/attend.php">Attendance</a>
 
 </div>';
 }else {

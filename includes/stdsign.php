@@ -8,6 +8,11 @@ if (isset($_POST['submit'])) {
   $uid = mysqli_real_escape_string($conn, $_POST['uid']);
   $pwd = mysqli_real_escape_string($conn, $_POST['pwd']);
   $phn = mysqli_real_escape_string($conn, $_POST['phn']);
+  $class = mysqli_real_escape_string($conn,$_POST['class']);
+  $email = mysqli_real_escape_string($conn,$_POST['email']);
+  $teacher = mysqli_real_escape_string($conn,$_POST['cl_teacher']);
+  $section = mysqli_real_escape_string($conn,$_POST['sec']);
+
   //error handlers
   // check for empty things
   if (empty($first) || empty($last) || empty($uid) || empty($pwd)  || empty($phn)) {
@@ -42,12 +47,17 @@ if (isset($_POST['submit'])) {
             exit();
           }else {
             // hashing the password
+            if($_POST['scode'] == 'blmiki123'){
             $hashedpwd = password_hash($pwd, PASSWORD_DEFAULT);
             // insert the fellow to the website..
-            $ql = "INSERT INTO `std.parent`(`firstname`, `lastname`, `phone.number`, `username`, `password`) values ('$first', '$last', '$phn','$uid','$hashedpwd')";
+            $ql = "INSERT INTO `std.parent`(`firstname`, `lastname`, `phone.number`, `username`, `password`,`email`,`class`,`cteacher`,`section`,`validity`) values
+            ('$first', '$last', '$phn','$uid','$hashedpwd','$email','$class','$teacher','$section','1')";
             $result = mysqli_query($conn, $ql);
             header('Location: ../stdlogin.php?signup=success');
             exit();
+          }else{
+            header('Location: ../stdlogin.php?signup=invalidschoolcode');
+          }
           }
 
         }

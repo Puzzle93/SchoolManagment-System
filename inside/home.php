@@ -1,5 +1,5 @@
 <?php
-if (isset($_SESSION['uid'])) {
+if (isset($_SESSION['uid5']) || isset($_SESSION['uid']) ) {
   echo '<div class="mid" style="height:100%">
     <h1>Home</h1>
     <div class="gallery-container" style="

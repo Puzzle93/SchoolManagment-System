@@ -12,13 +12,31 @@ echo '<form class="logg" action="../includes/logout.php" method="POST">
   <a href="attend.php">Attendance</a>
 
 </div>';
-if ($_SESSION['uid']==5) {
+if (isset($_SESSION['uid5'])) {
 
   echo '<div class="con">
     <a href="../teachsignup.php">Register a  new teacher</a>
   </div>';
 }
-}elseif (isset($_SESSION['id'])) {
+}  elseif(isset($_SESSION['uid5'])){
+    echo'<form class="logg" action="../includes/logout.php" method="POST">
+      <button type="submit" name="submit" class="btn">Log out</button>
+    </form>
+    <div id="mySidenav" class="sidenav">
+    <a href="../index.php">Home</a>
+      <a href="notice.php">Notices</a>
+      <a href="lect.php">Video Lectures</a>
+      <a href="event.php">UpcommingEvents</a>
+      <a href="gallery.php">Gallery</a>
+    <a href="teachermanagment.php">Teachers Managment</a>
+    <a href="attandence_observe.php">Attendance Observation</a>
+
+    </div>';
+    echo '<div class="con">
+      <a href="../teachsignup.php">Register a  new teacher</a>
+    </div>';
+
+  }elseif (isset($_SESSION['id'])) {
   echo '<form class="logg" action="../includes/logout.php" method="POST">
     <button type="submit" name="submit" class="btn">Log out <i class="fas fa-sign-out-alt"></i></button>
   </form>

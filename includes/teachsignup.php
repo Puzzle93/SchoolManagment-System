@@ -10,6 +10,7 @@ if (isset($_POST['submit'])) {
   $pwd = mysqli_real_escape_string($conn, $_POST['pwd']);
 $phn = mysqli_real_escape_string($conn, $_POST['phn']);
 $class= mysqli_real_escape_string($conn, $_POST['class']);
+$section = mysqli_real_escape_string($conn, $_POST['section']);
   //error handlers
   // check for empty things
   if (empty($first) || empty($last) || empty($uid) || empty($email) || empty($pwd)  || empty($phn) || empty($class) ) {
@@ -68,7 +69,7 @@ $class= mysqli_real_escape_string($conn, $_POST['class']);
             // hashing the password
             $hashedpwd = password_hash($pwd, PASSWORD_DEFAULT);
             // insert the fellow to the website..
-            $ql = "INSERT INTO `teachers.detail`(`firstname`, `lastname`, `phone.number`, `username`, `password`, `assigned.class`,`email`) values ('$first', '$last', '$phn','$uid','$hashedpwd','$class','$email')";
+            $ql = "INSERT INTO `teachers.detail`(`firstname`, `lastname`, `phone.number`, `username`, `password`, `assigned.class`,`email`,`assigned.section`) values ('$first', '$last', '$phn','$uid','$hashedpwd','$class','$email','$section')";
             $result = mysqli_query($conn, $ql);
 
             header('Location: ../index.php?signup=success');

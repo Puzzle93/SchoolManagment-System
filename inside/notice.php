@@ -10,7 +10,7 @@ include '../head.php';
 <div class="mid">
 <p class="texttitle">Notices</p>
 <?php
-if (isset($_SESSION['uid'])) {
+if (isset($_SESSION['uid']) || isset($_SESSION['uid5'])) {
 include 'inheader.php';
 include 'teachernotice.php';
 }
